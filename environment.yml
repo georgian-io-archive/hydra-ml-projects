@@ -1,0 +1,10 @@
+name: hydra
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - matplotlib=3.3.2
+  - scikit_learn=0.23.2
+  - pip
+  - pip:
+    - pip-tools
