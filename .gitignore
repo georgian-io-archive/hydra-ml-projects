@@ -1,5 +1,5 @@
 # Log files
-logs/
+tmp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
