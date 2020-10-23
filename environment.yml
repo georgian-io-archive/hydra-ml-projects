@@ -8,3 +8,4 @@ dependencies:
     - pip-tools
     - matplotlib
     - scikit_learn==0.23.2
+    - pandas==1.1.2
