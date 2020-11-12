@@ -3,7 +3,7 @@ train:
   cloud: "gcp"
   cpu_count: 8
   memory_size: 16
-  image_tag: 'master'
+  image_tag: 'latest'
   options:
     - batch_size: 1
       epoch: 5
