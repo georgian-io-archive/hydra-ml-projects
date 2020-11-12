@@ -1,0 +1,13 @@
+train:
+  model_path: 'boston_housing/train.py'
+  cloud: "gcp"
+  cpu_count: 8
+  memory_size: 16
+  image_tag: ''
+  options:
+    - batch_size: 1
+      epoch: 5
+      learning_rate: 0.0001
+    - batch_size: [1, 2]
+      epoch: [1]
+      learning_rate: [0.001, 0.01]
