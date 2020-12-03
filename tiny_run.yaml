@@ -1,0 +1,13 @@
+train:
+  project_name: 'boston_housing'
+  model_path: 'model.py'
+  cloud: "aws"
+  cpu_count: 8
+  memory_size: 16
+  gpu_count: 1
+  gpu_type: 'NVIDIA_TESLA_P4'
+  image_tag: 'latest'
+  options:
+    - batch_size: 1
+      epoch: 5
+      learning_rate: 0.0001
