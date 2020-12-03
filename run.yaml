@@ -1,4 +1,5 @@
 train:
+  project_name: 'boston_housing'
   model_path: 'model.py'
   cloud: "aws"
   cpu_count: 8
