@@ -1,6 +1,6 @@
 train:
   model_path: 'model.py'
-  cloud: "local"
+  cloud: "aws"
   cpu_count: 8
   memory_size: 16
   gpu_count: 1
