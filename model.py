@@ -3,7 +3,9 @@ from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.datasets import load_boston
+import os
 
+print(os.environ.get('HYDRA_PLATFORM'))
 boston = load_boston()
 
 boston_x = pd.DataFrame(boston.data, columns=boston.feature_names)
