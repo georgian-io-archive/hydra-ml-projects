@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
@@ -28,3 +29,4 @@ print(mean_absolute_error(y_test, boston_pred))
 print("R2 Score")
 print(r2_score(y_test, boston_pred))
 
+print(os.environ)
