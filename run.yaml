@@ -1,6 +1,6 @@
 train:
   project_name: 'boston_housing'
-  model_path: 'boston_housing/train.py'
+  model_path: 'boston_housing/model.py'
   cloud: "local"
   cpu_count: 8
   memory_size: 16
