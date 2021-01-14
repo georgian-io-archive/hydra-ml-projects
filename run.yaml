@@ -1,9 +1,10 @@
 train:
-  model_path: 'boston_housing/train.py'
-  cloud: "gcp"
+  model_path: 'boston_housing/model.py'
+  cloud: "fast_local"
   cpu_count: 8
   memory_size: 16
   image_tag: ''
+  project_name: "___"
   options:
     - batch_size: 1
       epoch: 5
