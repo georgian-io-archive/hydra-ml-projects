@@ -4,7 +4,7 @@ train:
   cpu_count: 8
   memory_size: 16
   image_tag: ''
-  project_name: "___"
+  project_name: "boston_housing"
   options:
     - batch_size: 1
       epoch: 5
