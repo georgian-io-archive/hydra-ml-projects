@@ -19,7 +19,7 @@ client = boto3.client('s3', aws_access_key_id=aws_id, aws_secret_access_key=aws_
 bucket = 'gp-sayon-test'
 file_path = 'datasets/iris.csv'
 csv_object = client.get_object(Bucket=bucket, Key=file_path)
-csv_string = csv_object['body'].read().decode('utf-8')
+csv_string = csv_object['Body'].read().decode('utf-8')
 
 iris_data = pd.read_csv(StringIO(csv_string))
 
