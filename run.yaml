@@ -1,10 +1,10 @@
 train:
   model_path: 'iris_flower/model.py'
-  cloud: "aws"
+  cloud: "fast_local"
   cpu_count: 8
   memory_size: 16
   image_tag: ''
-  project_name: "boston_housing"
+  project_name: "iris_flower"
   options:
     - batch_size: 1
       epoch: 5
