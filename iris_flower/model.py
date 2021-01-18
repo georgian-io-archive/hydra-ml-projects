@@ -9,6 +9,11 @@ iris = load_iris()
 iris_x = pd.DataFrame(iris.data, columns=iris.feature_names)
 iris_y = pd.DataFrame(iris.target)
 
+print(iris.data)
+print(iris.target)
+print(iris.feature_names)
+print(iris.target_names)
+
 reg = linear_model.LinearRegression()
 
 x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
