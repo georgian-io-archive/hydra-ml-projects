@@ -7,6 +7,8 @@ from sklearn.datasets import load_iris
 FILE_PATH = "./data/iris.csv"
 iris_data = pd.read_table(FILE_PATH, sep=",")
 
+print(iris_data)
+
 iris_x = iris_data[:, 'sepal_length':'petal_width']
 iris_y = iris_data[:, 'species':'species']
 
