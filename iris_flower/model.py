@@ -9,8 +9,8 @@ iris_data = pd.read_table(FILE_PATH, sep=",")
 
 print(iris_data)
 
-iris_x = iris_data[:, 'sepal_length':'petal_width']
-iris_y = iris_data[:, 'species':'species']
+iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
+iris_y = iris_data.loc[:, 'species':'species']
 
 print(iris_x)
 print(iris_y)
