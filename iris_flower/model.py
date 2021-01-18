@@ -11,11 +11,7 @@ from sklearn.datasets import load_iris
 # FILE_PATH = "./data/iris.csv"
 # iris_data = pd.read_table(FILE_PATH, sep=",")
 
-# using S3
-aws_id = os.environ['AWS_ID']
-aws_secret = os.environ['AWS_SECRET']
-
-client = boto3.client('s3', aws_access_key_id=aws_id, aws_secret_access_key=aws_secret)
+client = boto3.client('s3')
 bucket = 'gp-sayon-test'
 file_path = 'datasets/iris.csv'
 csv_object = client.get_object(Bucket=bucket, Key=file_path)
