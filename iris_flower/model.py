@@ -4,15 +4,24 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.datasets import load_iris
 
-iris = load_iris()
+FILE_PATH = "../data/iris.csv"
+iris_data = pd.read_table(FILE_PATH, sep=",")
 
-iris_x = pd.DataFrame(iris.data, columns=iris.feature_names)
-iris_y = pd.DataFrame(iris.target)
+iris_x = iris_data[:, 'sepal_length':'petal_width']
+iris_y = iris_data[:, 'species':'species']
 
-print(iris.data)
-print(iris.target)
-print(iris.feature_names)
-print(iris.target_names)
+print(iris_x)
+print(iris_y)
+
+# iris = load_iris()
+#
+# iris_x = pd.DataFrame(iris.data, columns=iris.feature_names)
+# iris_y = pd.DataFrame(iris.target)
+#
+# print(iris.data)
+# print(iris.target)
+# print(iris.feature_names)
+# print(iris.target_names)
 
 reg = linear_model.LinearRegression()
 
