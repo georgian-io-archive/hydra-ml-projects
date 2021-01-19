@@ -20,8 +20,8 @@ csv_object = client.get_object(Bucket=bucket, Key=file_path)
 csv_string = csv_object['Body'].read().decode('utf-8')
 
 with mlflow.start_run():
-    mlflow.log_param('b', 2)
-    mlflow.log_param('a', 3)
+    mlflow.log_metric('a', 2)
+    mlflow.log_param('b', 3)
 
 iris_data = pd.read_csv(StringIO(csv_string))
 
