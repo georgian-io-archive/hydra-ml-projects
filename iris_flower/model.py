@@ -9,21 +9,21 @@ from sklearn.datasets import load_iris
 import mlflow
 
 # using local data
-# FILE_PATH = "./data/iris.csv"
-# iris_data = pd.read_table(FILE_PATH, sep=",")
+FILE_PATH = "./data/iris.csv"
+iris_data = pd.read_table(FILE_PATH, sep=",")
 
-client = boto3.client('s3')
-bucket = 'gp-sayon-test'
-file_path = 'datasets/iris.csv'
-csv_object = client.get_object(Bucket=bucket, Key=file_path)
-
-csv_string = csv_object['Body'].read().decode('utf-8')
+# client = boto3.client('s3')
+# bucket = 'gp-sayon-test'
+# file_path = 'datasets/iris.csv'
+# csv_object = client.get_object(Bucket=bucket, Key=file_path)
+#
+# csv_string = csv_object['Body'].read().decode('utf-8')
+#
+# iris_data = pd.read_csv(StringIO(csv_string))
 
 with mlflow.start_run():
     mlflow.log_metric('a', 2)
     mlflow.log_param('b', 3)
-
-iris_data = pd.read_csv(StringIO(csv_string))
 
 iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
 iris_y = iris_data.loc[:, 'species':'species']
