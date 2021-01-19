@@ -6,6 +6,7 @@ from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.datasets import load_iris
+import mlflow
 
 # using local data
 # FILE_PATH = "./data/iris.csv"
@@ -19,6 +20,9 @@ csv_object = client.get_object(Bucket=bucket, Key=file_path)
 print(csv_object)
 
 csv_string = csv_object['Body'].read().decode('utf-8')
+
+mlflow.log_param('b', 2)
+mlflow.log_param('a', 3)
 
 iris_data = pd.read_csv(StringIO(csv_string))
 
