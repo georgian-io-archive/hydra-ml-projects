@@ -24,10 +24,6 @@ iris_data = pd.read_table(FILE_PATH, sep=",")
 TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com'
 mlflow.set_tracking_uri(TRACKING_URI)
 
-with mlflow.start_run():
-    mlflow.log_metric('a', 2)
-    mlflow.log_param('b', 3)
-
 iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
 iris_y = iris_data.loc[:, 'species':'species']
 
@@ -36,9 +32,14 @@ reg = linear_model.LinearRegression()
 x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
                                                     test_size=0.33, random_state=4)
 
-reg.fit(x_train, y_train)
+model = reg.fit(x_train, y_train)
 
 iris_pred = reg.predict(x_test)
+
+with mlflow.start_run():
+    mlflow.log_metric('a', 2)
+    mlflow.log_param('b', 3)
+    mlflow.log_model(model, "iris_model")
 
 print("Mean squared error:", mean_squared_error(y_test, iris_pred))
 print("Mean absolute error:", mean_absolute_error(y_test, iris_pred))
