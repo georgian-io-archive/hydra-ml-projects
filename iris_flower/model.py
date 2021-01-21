@@ -40,7 +40,7 @@ iris_pred = reg.predict(x_test)
 with mlflow.start_run():
     mlflow.log_metric('a', 2)
     mlflow.log_param('b', 3)
-    mlflow.log_model(model, "iris_model")
+    mlflow.sklearn.log_model(model, "iris_model")
 
 print("Mean squared error:", mean_squared_error(y_test, iris_pred))
 print("Mean absolute error:", mean_absolute_error(y_test, iris_pred))
