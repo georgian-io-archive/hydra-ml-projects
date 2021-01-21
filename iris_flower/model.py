@@ -21,6 +21,9 @@ iris_data = pd.read_table(FILE_PATH, sep=",")
 #
 # iris_data = pd.read_csv(StringIO(csv_string))
 
+TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com'
+mlflow.set_tracking_uri(TRACKING_URI)
+
 with mlflow.start_run():
     mlflow.log_metric('a', 2)
     mlflow.log_param('b', 3)
