@@ -38,9 +38,9 @@ model = reg.fit(x_train, y_train)
 iris_pred = reg.predict(x_test)
 
 with mlflow.start_run():
-    mlflow.log_metric('a', 2)
-    mlflow.log_param('b', 3)
-    mlflow.sklearn.log_model(model, "iris_model")
+    mlflow.log_metric('metric1', 2)
+    mlflow.log_param('param1', 3)
+    # mlflow.sklearn.log_model(model, "iris_model")
 
 print("Mean squared error:", mean_squared_error(y_test, iris_pred))
 print("Mean absolute error:", mean_absolute_error(y_test, iris_pred))
