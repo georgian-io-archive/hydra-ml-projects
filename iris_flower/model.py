@@ -22,7 +22,7 @@ iris_data = pd.read_table(FILE_PATH, sep=",")
 #
 # iris_data = pd.read_csv(StringIO(csv_string))
 
-TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com'
+TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
 mlflow.set_tracking_uri(TRACKING_URI)
 
 iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
