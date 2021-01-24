@@ -9,10 +9,17 @@ from sklearn.datasets import load_iris
 import mlflow
 import mlflow.sklearn
 
-# using local data
-FILE_PATH = "./data/iris.csv"
-iris_data = pd.read_table(FILE_PATH, sep=",")
+## using sklearn
+iris = load_iris()
 
+iris_x = pd.DataFrame(iris.data, columns=iris.feature_names)
+iris_y = pd.DataFrame(iris.target)
+
+## using local data
+# FILE_PATH = "./data/iris.csv"
+# iris_data = pd.read_table(FILE_PATH, sep=",")
+
+## using S3
 # client = boto3.client('s3')
 # bucket = 'gp-sayon-test'
 # file_path = 'datasets/iris.csv'
@@ -21,12 +28,12 @@ iris_data = pd.read_table(FILE_PATH, sep=",")
 # csv_string = csv_object['Body'].read().decode('utf-8')
 #
 # iris_data = pd.read_csv(StringIO(csv_string))
+#
+# iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
+# iris_y = iris_data.loc[:, 'species':'species']
 
 TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
 mlflow.set_tracking_uri(TRACKING_URI)
-
-iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
-iris_y = iris_data.loc[:, 'species':'species']
 
 reg = linear_model.LinearRegression()
 
