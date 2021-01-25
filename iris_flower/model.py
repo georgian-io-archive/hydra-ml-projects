@@ -16,6 +16,8 @@ iris = load_iris()
 iris_x = pd.DataFrame(iris.data, columns=iris.feature_names)
 iris_y = pd.DataFrame(iris.target)
 
+print(iris_x.shape, iris_y.shape)
+
 ## using local data
 # FILE_PATH = "./data/iris.csv"
 # iris_data = pd.read_table(FILE_PATH, sep=",")
