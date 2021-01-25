@@ -8,6 +8,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.datasets import load_iris
 import mlflow
 import mlflow.sklearn
+from datetime import datetime
 
 ## using sklearn
 iris = load_iris()
@@ -35,21 +36,24 @@ iris_y = pd.DataFrame(iris.target)
 TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
 mlflow.set_tracking_uri(TRACKING_URI)
 
-reg = linear_model.LinearRegression()
+with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
 
-x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
-                                                    test_size=0.33, random_state=4)
+    reg = linear_model.LinearRegression()
 
-model = reg.fit(x_train, y_train)
+    x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
+                                                        test_size=0.33, random_state=4)
 
-iris_pred = reg.predict(x_test)
+    model = reg.fit(x_train, y_train)
 
-with mlflow.start_run():
-    mlflow.log_metric('metric1', 2)
-    mlflow.log_param('param1', 3)
-    # mlflow.sklearn.log_model(model, "iris_model")
+    iris_pred = reg.predict(x_test)
 
-print("Mean squared error:", mean_squared_error(y_test, iris_pred))
-print("Mean absolute error:", mean_absolute_error(y_test, iris_pred))
-print("R2 Score:", r2_score(y_test, iris_pred))
+    mlflow.log_param('dataset', 'iris_flower')
+    mlflow.log_param('algorithm', 'linear_regression')
 
+    mlflow.log_metric('mean_squared_error', mean_squared_error(y_test, iris_pred))
+    mlflow.log_metric('mean_absolute_error', mean_absolute_error(y_test, iris_pred))
+    mlflow.log_metric('r2_score', r2_score(y_test, iris_pred))
+
+    mlflow.sklearn.log_model(model, "iris_model")
+
+    mlflow.end_run()
