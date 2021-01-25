@@ -42,21 +42,20 @@ with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}')
 
     x_train, x_test, y_train, y_test = train_test_split(iris['data'], iris['target'], random_state=0)
 
-    print(x_train.shape, x_test.shape, y_train.shape, y_test.shape)
 
-    # model = knn.fit(x_train, y_train)
+    model = knn.fit(x_train, y_train)
+
+    iris_pred = knn.predict(x_test)
 #
-#     iris_pred = knn.predict(x_test)
-#
-#     mlflow.log_param('dataset', 'iris_flower')
-#     mlflow.log_param('algorithm', 'k_neighbors')
-#     mlflow.log_param('n_neighbors', n_neighbors)
-#     mlflow.log_param('weights', weights)
-#
-#     mlflow.log_metric('mean_squared_error', mean_squared_error(y_test, iris_pred))
-#     mlflow.log_metric('mean_absolute_error', mean_absolute_error(y_test, iris_pred))
-#     mlflow.log_metric('r2_score', r2_score(y_test, iris_pred))
-#
-#     mlflow.sklearn.log_model(model, "iris_model")
-#
-#     mlflow.end_run()
+    mlflow.log_param('dataset', 'iris_flower')
+    mlflow.log_param('algorithm', 'k_neighbors')
+    mlflow.log_param('n_neighbors', n_neighbors)
+    mlflow.log_param('weights', weights)
+
+    mlflow.log_metric('mean_squared_error', mean_squared_error(y_test, iris_pred))
+    mlflow.log_metric('mean_absolute_error', mean_absolute_error(y_test, iris_pred))
+    mlflow.log_metric('r2_score', r2_score(y_test, iris_pred))
+
+    mlflow.sklearn.log_model(model, "iris_model")
+
+    mlflow.end_run()
