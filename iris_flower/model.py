@@ -2,7 +2,7 @@ import os
 from io import StringIO
 import boto3
 import pandas as pd
-from sklearn import linear_model
+from sklearn import neighbors
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.datasets import load_iris
@@ -36,19 +36,26 @@ iris_y = pd.DataFrame(iris.target)
 TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
 mlflow.set_tracking_uri(TRACKING_URI)
 
+n_neighbors = int(os.environ.get('n_neighbors', 5))
+weights = os.environ.get('weights', 'uniform')
+algorithm = os.environ.get('algorithm', 'auto')
+
 with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
 
-    reg = linear_model.LinearRegression()
+    knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights, algorithm=algorithm)
 
     x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
                                                         test_size=0.33, random_state=4)
 
-    model = reg.fit(x_train, y_train)
+    model = knn.fit(x_train, y_train)
 
-    iris_pred = reg.predict(x_test)
+    iris_pred = knn.predict(x_test)
 
     mlflow.log_param('dataset', 'iris_flower')
     mlflow.log_param('algorithm', 'linear_regression')
+    mlflow.log_param('n_neighbors', n_neighbors)
+    mlflow.log_param('weights', weights)
+    mlflow.log_param('algorithm', algorithm)
 
     mlflow.log_metric('mean_squared_error', mean_squared_error(y_test, iris_pred))
     mlflow.log_metric('mean_absolute_error', mean_absolute_error(y_test, iris_pred))
