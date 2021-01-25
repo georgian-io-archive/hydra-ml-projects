@@ -8,4 +8,3 @@ train:
   options:
     - n_neighbors: [1, 2, 5]
       weights: ['uniform', 'distance']
-      algorithm: ['ball_tree', 'kd_tree']
