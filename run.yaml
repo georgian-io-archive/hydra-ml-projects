@@ -6,5 +6,5 @@ train:
   image_tag: ''
   project_name: "iris_flower"
   options:
-    - n_neighbors: [1, 2, 5, 10, 30]
+    - n_neighbors: [1, 2, 3, 4, 5, 10, 30]
       weights: ['uniform', 'distance']
