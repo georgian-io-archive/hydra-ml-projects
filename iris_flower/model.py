@@ -13,11 +13,6 @@ from datetime import datetime
 ## using sklearn
 iris = load_iris()
 
-iris_x = pd.DataFrame(iris.data, columns=iris.feature_names)
-iris_y = pd.DataFrame(iris.target)
-
-print(iris_x.shape, iris_y.shape)
-
 ## using local data
 # FILE_PATH = "./data/iris.csv"
 # iris_data = pd.read_table(FILE_PATH, sep=",")
@@ -38,17 +33,18 @@ print(iris_x.shape, iris_y.shape)
 # TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
 # mlflow.set_tracking_uri(TRACKING_URI)
 #
-# n_neighbors = int(os.environ.get('n_neighbors', 5))
-# weights = os.environ.get('weights', 'uniform')
-#
-# with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
-#
-#     knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
-#
-#     x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
-#                                                         test_size=0.33, random_state=4)
-#
-#     model = knn.fit(x_train, y_train)
+n_neighbors = int(os.environ.get('n_neighbors', 5))
+weights = os.environ.get('weights', 'uniform')
+
+with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
+
+    knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
+
+    x_train, x_test, y_train, y_test = train_test_split(iris['data'], iris['target'], random_state=0)
+
+    print(x_train.shape, x_test.shape, y_train.shape, y_test.shape)
+
+    # model = knn.fit(x_train, y_train)
 #
 #     iris_pred = knn.predict(x_test)
 #
