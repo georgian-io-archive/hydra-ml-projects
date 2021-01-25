@@ -33,34 +33,32 @@ iris_y = pd.DataFrame(iris.target)
 # iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
 # iris_y = iris_data.loc[:, 'species':'species']
 
-TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
-mlflow.set_tracking_uri(TRACKING_URI)
-
-n_neighbors = int(os.environ.get('n_neighbors', 5))
-weights = os.environ.get('weights', 'uniform')
-algorithm = os.environ.get('algorithm', 'auto')
-
-with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
-
-    knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights, algorithm=algorithm)
-
-    x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
-                                                        test_size=0.33, random_state=4)
-
-    model = knn.fit(x_train, y_train)
-
-    iris_pred = knn.predict(x_test)
-
-    mlflow.log_param('dataset', 'iris_flower')
-    mlflow.log_param('algorithm', 'linear_regression')
-    mlflow.log_param('n_neighbors', n_neighbors)
-    mlflow.log_param('weights', weights)
-    mlflow.log_param('algorithm', algorithm)
-
-    mlflow.log_metric('mean_squared_error', mean_squared_error(y_test, iris_pred))
-    mlflow.log_metric('mean_absolute_error', mean_absolute_error(y_test, iris_pred))
-    mlflow.log_metric('r2_score', r2_score(y_test, iris_pred))
-
-    mlflow.sklearn.log_model(model, "iris_model")
-
-    mlflow.end_run()
+# TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
+# mlflow.set_tracking_uri(TRACKING_URI)
+#
+# n_neighbors = int(os.environ.get('n_neighbors', 5))
+# weights = os.environ.get('weights', 'uniform')
+#
+# with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
+#
+#     knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
+#
+#     x_train, x_test, y_train, y_test = train_test_split(iris_x, iris_y,
+#                                                         test_size=0.33, random_state=4)
+#
+#     model = knn.fit(x_train, y_train)
+#
+#     iris_pred = knn.predict(x_test)
+#
+#     mlflow.log_param('dataset', 'iris_flower')
+#     mlflow.log_param('algorithm', 'k_neighbors')
+#     mlflow.log_param('n_neighbors', n_neighbors)
+#     mlflow.log_param('weights', weights)
+#
+#     mlflow.log_metric('mean_squared_error', mean_squared_error(y_test, iris_pred))
+#     mlflow.log_metric('mean_absolute_error', mean_absolute_error(y_test, iris_pred))
+#     mlflow.log_metric('r2_score', r2_score(y_test, iris_pred))
+#
+#     mlflow.sklearn.log_model(model, "iris_model")
+#
+#     mlflow.end_run()
