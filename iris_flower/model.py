@@ -31,7 +31,7 @@ iris = load_iris()
 # iris_y = iris_data.loc[:, 'species':'species']
 
 # TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
-TRACKING_URI = 'http://35.193.18.104'
+TRACKING_URI = 'http://104.154.32.39'
 mlflow.set_tracking_uri(TRACKING_URI)
 #
 n_neighbors = int(os.environ.get('n_neighbors', 5))
