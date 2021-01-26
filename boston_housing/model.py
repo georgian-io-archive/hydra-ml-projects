@@ -5,6 +5,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.datasets import load_boston
 
+from clearml import Task
+task = Task.init(project_name="Boston_Housing_Faisal", task_name="test_model_faisal")
+
+
 boston = load_boston()
 
 boston_x = pd.DataFrame(boston.data, columns=boston.feature_names)
