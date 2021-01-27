@@ -7,3 +7,5 @@ train:
   project_name: "iris_flower"
   options:
     - n_neighbors: [1]
+      username: 'gcp-hydra-user'
+      password: 'ayupD3kTsxfps'
