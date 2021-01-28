@@ -41,7 +41,7 @@ n_neighbors = int(os.environ.get('n_neighbors', 5))
 weights = os.environ.get('weights', 'uniform')
 
 mlflow.set_experiment(experiment_name='iris_flower_experiment')
-with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
+with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}') as run:
 
     knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
 
@@ -55,6 +55,7 @@ with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}')
     mlflow.log_param('algorithm', 'k_neighbors')
     mlflow.log_param('n_neighbors', n_neighbors)
     mlflow.log_param('weights', weights)
+    mlflow.log_param('run_id', run.info.run_id)
 
     mlflow.log_metric('mean_squared_error', mean_squared_error(y_test, iris_pred))
     mlflow.log_metric('r2_score', r2_score(y_test, iris_pred))
