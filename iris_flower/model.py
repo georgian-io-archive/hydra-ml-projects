@@ -31,12 +31,15 @@ iris = load_iris()
 # iris_y = iris_data.loc[:, 'species':'species']
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.environ.get('google_application_credentials')
+os.environ['MLFLOW_TRACKING_USERNAME'] = os.environ.get('mlflow_tracking_username')
+os.environ['MLFLOW_TRACKING_PASSWORD'] = os.environ.get('mlflow_tracking_password')
 
-username = os.environ.get('username')
-password = os.environ.get('password')
+# username = os.environ.get('username')
+# password = os.environ.get('password')
 
 # TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com' # map IP Address to route 53 entry
-TRACKING_URI = f'http://{username}:{password}@104.154.32.39'
+# TRACKING_URI = f'http://{username}:{password}@104.154.32.39'
+TRACKING_URI = 'http://104.154.32.9'
 mlflow.set_tracking_uri(TRACKING_URI)
 #
 n_neighbors = int(os.environ.get('n_neighbors', 5))
