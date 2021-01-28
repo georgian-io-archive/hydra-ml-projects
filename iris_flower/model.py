@@ -42,6 +42,8 @@ weights = os.environ.get('weights', 'uniform')
 
 with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}'):
 
+    print(mlflow.get_artifact_uri())
+
     knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
 
     x_train, x_test, y_train, y_test = train_test_split(iris['data'], iris['target'], random_state=0)
