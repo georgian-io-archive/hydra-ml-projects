@@ -1,4 +1,5 @@
 data/*
+credentials/*
 
 # Log files
 tmp/
