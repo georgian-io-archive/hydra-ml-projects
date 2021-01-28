@@ -9,3 +9,4 @@ train:
     - n_neighbors: [1]
       username: 'gcp-hydra-user'
       password: 'ayupD3kTsxfps'
+      google_application_credentials: './credentials/hydra-gcp-test-291317-81faaa44d19d.json'
