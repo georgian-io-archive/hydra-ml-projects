@@ -9,4 +9,4 @@ train:
     - n_neighbors: [1]
       mlflow_tracking_username: 'gcp-hydra-user'
       mlflow_tracking_password: 'ayupD3kTsxfps'
-#      google_application_credentials: './credentials/hydra-gcp-test-291317-81faaa44d19d.json'
+      google_application_credentials: './credentials/hydra-gcp-test-291317-81faaa44d19d.json'
