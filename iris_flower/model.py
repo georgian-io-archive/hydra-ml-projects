@@ -36,7 +36,7 @@ username = os.environ.get('mlflow_tracking_username')
 password = os.environ.get('mlflow_tracking_password')
 
 # TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com'
-TRACKING_URI = f'http://mlflow.gcp.impact.georgian.io'
+TRACKING_URI = f'http://{username}:{password}@mlflow.gcp.impact.georgian.io'
 mlflow.set_tracking_uri(TRACKING_URI)
 #
 n_neighbors = int(os.environ.get('n_neighbors', 5))
