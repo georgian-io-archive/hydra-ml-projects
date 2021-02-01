@@ -30,13 +30,13 @@ iris = load_iris()
 # iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
 # iris_y = iris_data.loc[:, 'species':'species']
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.environ.get('google_application_credentials')
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.environ.get('google_application_credentials')
 
 username = os.environ.get('mlflow_tracking_username')
 password = os.environ.get('mlflow_tracking_password')
 
 # TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com'
-TRACKING_URI = f'http://mlflow.gcp.impact.georgian.io'
+TRACKING_URI = f'http://{username}:{password}@34.123.97.117'
 mlflow.set_tracking_uri(TRACKING_URI)
 #
 n_neighbors = int(os.environ.get('n_neighbors', 5))
