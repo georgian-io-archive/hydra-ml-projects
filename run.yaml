@@ -6,7 +6,8 @@ train:
   image_tag: ''
   project_name: "iris_flower"
   options:
-    - n_neighbors: [1]
+    - n_neighbors: [1, 2, 5, 10, 30]
+      weights: ['uniform', 'distance']
       mlflow_tracking_username: 'gcp-hydra-user'
       mlflow_tracking_password: 'ayupD3kTsxfps'
 #      google_application_credentials: './credentials/hydra-gcp-test-291317-81faaa44d19d.json'
