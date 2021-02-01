@@ -30,7 +30,7 @@ iris = load_iris()
 # iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
 # iris_y = iris_data.loc[:, 'species':'species']
 
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.environ.get('google_application_credentials')
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.environ.get('google_application_credentials')
 
 username = os.environ.get('mlflow_tracking_username')
 password = os.environ.get('mlflow_tracking_password')
