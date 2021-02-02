@@ -13,10 +13,11 @@ from datetime import datetime
 ## using sklearn
 iris = load_iris()
 
-username = os.environ.get('mlflow_tracking_username')
-password = os.environ.get('mlflow_tracking_password')
+# username = os.environ.get('MLFLOW_TRACKING_USERNAME')
+# password = os.environ.get('MLFLOW_TRACKING_PASSWORD')
 
-TRACKING_URI = f'http://{username}:{password}@mlflow.gcp.impact.georgian.io'
+# TRACKING_URI = f'http://{username}:{password}@mlflow.gcp.impact.georgian.io'
+TRACKING_URI = 'http://mlflow.gcp.impact.georgian.io'
 mlflow.set_tracking_uri(TRACKING_URI)
 print(mlflow.get_tracking_uri())
 
