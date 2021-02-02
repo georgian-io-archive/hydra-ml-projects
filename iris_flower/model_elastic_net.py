@@ -13,11 +13,6 @@ from datetime import datetime
 ## using sklearn
 iris = load_iris()
 
-# username = os.environ.get('MLFLOW_TRACKING_USERNAME')
-# password = os.environ.get('MLFLOW_TRACKING_PASSWORD')
-
-# TRACKING_URI = f'http://{username}:{password}@mlflow.gcp.impact.georgian.io'
-
 alpha = float(os.environ.get('alpha', 1.0))
 max_iter = int(os.environ.get('max_iter', 1000))
 

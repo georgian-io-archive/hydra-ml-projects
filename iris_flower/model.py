@@ -13,30 +13,6 @@ from datetime import datetime
 ## using sklearn
 iris = load_iris()
 
-## using local data
-# FILE_PATH = "./data/iris.csv"
-# iris_data = pd.read_table(FILE_PATH, sep=",")
-
-## using S3
-# client = boto3.client('s3')
-# bucket = 'gp-sayon-test'
-# file_path = 'datasets/iris.csv'
-# csv_object = client.get_object(Bucket=bucket, Key=file_path)
-#
-# csv_string = csv_object['Body'].read().decode('utf-8')
-#
-# iris_data = pd.read_csv(StringIO(csv_string))
-#
-# iris_x = iris_data.loc[:, 'sepal_length':'petal_width']
-# iris_y = iris_data.loc[:, 'species':'species']
-
-username = os.environ.get('mlflow_tracking_username')
-password = os.environ.get('mlflow_tracking_password')
-
-# TRACKING_URI = 'http://ec2-3-239-186-96.compute-1.amazonaws.com'
-TRACKING_URI = f'http://{username}:{password}@34.123.97.117'
-mlflow.set_tracking_uri(TRACKING_URI)
-#
 n_neighbors = int(os.environ.get('n_neighbors', 5))
 weights = os.environ.get('weights', 'uniform')
 
