@@ -8,6 +8,6 @@ train:
   options:
     - alpha: [0.01]
       max_iter: [100]
-      MLFLOW_TRACKING_USERNAME: 'gcp-hydra-user'
-      MLFLOW_TRACKING_PASSWORD: 'ayupD3kTsxfps'
+#      MLFLOW_TRACKING_USERNAME: 'gcp-hydra-user'
+#      MLFLOW_TRACKING_PASSWORD: 'ayupD3kTsxfps'
       GOOGLE_APPLICATION_CREDENTIALS: './credentials/hydra-gcp-test-291317-81faaa44d19d.json'
