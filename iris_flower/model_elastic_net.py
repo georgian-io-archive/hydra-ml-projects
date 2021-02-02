@@ -17,9 +17,6 @@ iris = load_iris()
 # password = os.environ.get('MLFLOW_TRACKING_PASSWORD')
 
 # TRACKING_URI = f'http://{username}:{password}@mlflow.gcp.impact.georgian.io'
-TRACKING_URI = 'http://mlflow.gcp.impact.georgian.io'
-mlflow.set_tracking_uri(TRACKING_URI)
-print(mlflow.get_tracking_uri())
 
 alpha = float(os.environ.get('alpha', 1.0))
 max_iter = int(os.environ.get('max_iter', 1000))
