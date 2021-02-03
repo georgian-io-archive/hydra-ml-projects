@@ -11,4 +11,3 @@ train:
       MLFLOW_TRACKING_URI: 'http://mlflow.gcp.impact.georgian.io'
       MLFLOW_TRACKING_USERNAME: 'gcp-hydra-user'
       MLFLOW_TRACKING_PASSWORD: 'ayupD3kTsxfps'
-      GOOGLE_APPLICATION_CREDENTIALS: './credentials/hydra-gcp-test-291317-81faaa44d19d.json'
