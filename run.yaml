@@ -1,13 +1,13 @@
 train:
-  model_path: 'boston_housing/train.py'
-  cloud: "gcp"
+  model_path: 'iris_flower/model.py'
+  cloud: "fast_local"
   cpu_count: 8
   memory_size: 16
   image_tag: ''
+  project_name: "iris_flower"
   options:
-    - batch_size: 1
-      epoch: 5
-      learning_rate: 0.0001
-    - batch_size: [1, 2]
-      epoch: [1]
-      learning_rate: [0.001, 0.01]
+    - alpha: [0.01]
+      max_iter: [100]
+      MLFLOW_TRACKING_URI: 'http://mlflow.gcp.impact.georgian.io'
+      MLFLOW_TRACKING_USERNAME: <enter_username>
+      MLFLOW_TRACKING_PASSWORD: <enter_password>
