@@ -9,5 +9,5 @@ train:
     - alpha: [0.01]
       max_iter: [100]
       MLFLOW_TRACKING_URI: 'http://mlflow.gcp.impact.georgian.io'
-      MLFLOW_TRACKING_USERNAME: 'gcp-hydra-user'
-      MLFLOW_TRACKING_PASSWORD: 'ayupD3kTsxfps'
+      MLFLOW_TRACKING_USERNAME: <enter_username>
+      MLFLOW_TRACKING_PASSWORD: <enter_password>
