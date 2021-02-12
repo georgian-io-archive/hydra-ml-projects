@@ -9,5 +9,3 @@ train:
     - alpha: [0.01]
       max_iter: [100]
       MLFLOW_TRACKING_URI: 'http://44.192.40.87:5000'
-      MLFLOW_TRACKING_USERNAME: '<enter_username>'
-      MLFLOW_TRACKING_PASSWORD: '<enter_password>'
