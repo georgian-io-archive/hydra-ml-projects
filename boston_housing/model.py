@@ -9,7 +9,7 @@ from clearml import Task
 task = Task.init(project_name="Boston_Housing_Faisal", task_name="test_model_faisal")
 
 
-boston = load_boston()
+boston = pd.read_csv('data/housing.csv')
 
 boston_x = pd.DataFrame(boston.data, columns=boston.feature_names)
 boston_y = pd.DataFrame(boston.target)
@@ -34,3 +34,6 @@ print("R2 Score")
 print(r2_score(y_test, boston_pred))
 
 print(os.environ)
+
+# DAGSTER
+

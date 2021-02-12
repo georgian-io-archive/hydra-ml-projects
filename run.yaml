@@ -1,3 +1,7 @@
+dataset_generation:
+  query_path: 'boston_housing/query.sql'
+  dataset_name: 'housing.csv'
+
 train:
   project_name: 'boston_housing'
   model_path: 'boston_housing/model.py'
