@@ -8,4 +8,4 @@ train:
   options:
     - alpha: [0.01]
       max_iter: [100]
-      MLFLOW_TRACKING_URI: 'http://3.236.137.104:5000'
+      MLFLOW_TRACKING_URI: 'http://35.153.103.205:5000/'
