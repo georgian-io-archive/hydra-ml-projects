@@ -8,4 +8,4 @@ train:
   options:
     - alpha: [0.01]
       max_iter: [100]
-      MLFLOW_TRACKING_URI: 'http://mlflow.gcp.impact.georgian.io/'
+      MLFLOW_TRACKING_URI: 'http://18.215.187.140:5000/'
