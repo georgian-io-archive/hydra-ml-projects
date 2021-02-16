@@ -7,4 +7,8 @@ train:
   project_name: "iris_flower"
   options:
     - n_neighbors: [1, 2, 3, 5, 8, 11, 20, 25, 50, 75, 100]
+      leaf_size: [30, 40, 50, 60, 70]
+      MLFLOW_TRACKING_URI: 'http://10.0.0.171:5000/'
+    - n_neighbors: [20, 30, 40]
+      leaf_size: [1, 2, 3]
       MLFLOW_TRACKING_URI: 'http://10.0.0.171:5000/'

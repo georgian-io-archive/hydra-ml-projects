@@ -14,12 +14,13 @@ from datetime import datetime
 iris = load_iris()
 
 n_neighbors = int(os.environ.get('n_neighbors', 5))
+leaf_size = int(os.environ.get('leaf_size', 32))
 weights = os.environ.get('weights', 'uniform')
 
 mlflow.set_experiment(experiment_name='iris_flower_experiment')
 with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}') as run:
 
-    knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
+    knn = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights, leaf_size=leaf_size)
 
     x_train, x_test, y_train, y_test = train_test_split(iris['data'], iris['target'], random_state=0)
 
