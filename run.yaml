@@ -1,11 +1,10 @@
 train:
   model_path: 'iris_flower/model.py'
-  cloud: "fast_local"
+  cloud: "aws"
   cpu_count: 8
   memory_size: 16
   image_tag: ''
   project_name: "iris_flower"
   options:
-    - alpha: [0.01]
-      max_iter: [100]
+    - n_neighbors: [1, 2, 3, 5, 8, 11, 20, 25, 50, 75, 100]
       MLFLOW_TRACKING_URI: 'http://52.54.64.122:5000/'
