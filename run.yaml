@@ -8,4 +8,4 @@ train:
   options:
     - alpha: [0.01, 0.025, 0.05, 0.1, 0.25, 0.5]
       max_iter: [10, 100, 250, 500]
-      MLFLOW_TRACKING_URI: 'http://18.215.187.140:5000/'
+      MLFLOW_TRACKING_URI: 'http://mlflow-server-lb-1073343946.us-east-1.elb.amazonaws.com:5000/'
