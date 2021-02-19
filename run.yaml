@@ -6,6 +6,6 @@ train:
   image_tag: ''
   project_name: "iris_flower"
   options:
-    - alpha: [0.01, 0.05, 0.1]
-      max_iter: [10, 250, 500, 1000]
-      MLFLOW_TRACKING_URI: 'http://hydra-mlflow-lb-126083158.us-east-1.elb.amazonaws.com/'
+    - alpha: [0.01, 0.02, 0.03, 0.05, 0.1, 0.2, 0.3, 0.5]
+      max_iter: [10, 25, 50, 100, 250, 500, 1000]
+      MLFLOW_TRACKING_URI: 'http://mlflow-server-lb-1073343946.us-east-1.elb.amazonaws.com:5000/'
