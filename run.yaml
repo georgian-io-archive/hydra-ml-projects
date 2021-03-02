@@ -1,6 +1,6 @@
 train:
   model_path: 'iris_flower/model.py'
-  cloud: "aws"
+  cloud: "gcp"
   cpu_count: 8
   memory_size: 16
   image_tag: ''
