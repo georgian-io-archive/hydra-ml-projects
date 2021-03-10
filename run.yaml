@@ -1,6 +1,6 @@
 train:
   model_path: 'iris_flower/model.py'
-  cloud: "gcp"
+  cloud: "fast_local"
   cpu_count: 8
   memory_size: 16
   image_tag: ''
@@ -8,6 +8,4 @@ train:
   options:
     - n_neighbors: [5, 25, 50, 75, 100]
       weights: ['uniform']
-      MLFLOW_TRACKING_USERNAME: ${GCP_MLFLOW_USERNAME}
-      MLFLOW_TRACKING_PASSWORD: ${GCP_MLFLOW_PASSWORD}
-      MLFLOW_TRACKING_URI: 'http://mlflow.gcp.impact.georgian.io/'
+      MLFLOW_TRACKING_URI: 'http://mlflow-lb-443303941.us-east-1.elb.amazonaws.com'
