@@ -8,6 +8,6 @@ train:
   options:
     - n_neighbors: [5, 25, 50, 75, 100]
       weights: ['uniform']
-      MLFLOW_TRACKING_USERNAME: ${GCP_MLFLOW_USERNOLAME}
+      MLFLOW_TRACKING_USERNAME: ${GCP_MLFLOW_USERNAME}
       MLFLOW_TRACKING_PASSWORD: ${GCP_MLFLOW_PASSWORD}
       MLFLOW_TRACKING_URI: 'http://mlflow.gcp.impact.georgian.io/'
