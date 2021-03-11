@@ -47,5 +47,5 @@ print('weights', weights)
 
 print('mean_squared_error', mean_squared_error(y_test, iris_pred))
 print('r2_score', r2_score(y_test, iris_pred))
-print('accuracy_score', accuracy_score(y_test, iris_pred)
+print('accuracy_score', accuracy_score(y_test, iris_pred))
 
