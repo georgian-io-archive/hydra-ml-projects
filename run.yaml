@@ -3,8 +3,6 @@ train:
   cloud: "gcp"
   cpu_count: 8
   memory_size: 16
-  image_url: 'gcr.io/hydra-gcp-test-291317/hydra_image'
-  image_tag: 'master'
   project_name: "iris_flower"
   options:
     - n_neighbors: [5, 25, 50, 75, 100]
