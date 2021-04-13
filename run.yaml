@@ -4,9 +4,11 @@ train:
   cpu_count: 8
   memory_size: 16
   project_name: "iris_flower"
+  metadata_db_hostname: "batchdbtesttf.ckmoellmwsrn.us-east-1.rds.amazonaws.com"
+  metadata_db_username_secret: "batch/test/admin_username"
+  metadata_db_password_secret: "batch/test/admin_password"
+  metadata_db_name: "batchdbtesttf"
   options:
     - n_neighbors: [5, 25, 50, 75, 100]
       weights: ['uniform']
-      MLFLOW_TRACKING_USERNAME: ${GCP_MLFLOW_USERNAME}
-      MLFLOW_TRACKING_PASSWORD: ${GCP_MLFLOW_PASSWORD}
       MLFLOW_TRACKING_URI: 'http://mlflow.gcp.impact.georgian.io/'

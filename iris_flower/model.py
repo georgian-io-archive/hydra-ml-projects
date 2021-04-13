@@ -37,7 +37,7 @@ with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}')
     mlflow.log_metric('r2_score', r2_score(y_test, iris_pred))
     mlflow.log_metric('accuracy_score', accuracy_score(y_test, iris_pred))
 
-    mlflow.sklearn.log_model(model, "iris_model")
+    # mlflow.sklearn.log_model(model, "iris_model")
 
     mlflow.end_run()
 
