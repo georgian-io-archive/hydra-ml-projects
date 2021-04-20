@@ -1,4 +1,4 @@
-train:
+run:
   model_path: 'iris_flower/model.py'
   cloud: "aws"
   cpu_count: 8
