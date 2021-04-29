@@ -8,4 +8,4 @@ train:
   options:
     - n_neighbors: 1
       leaf_size: 30
-      MLFLOW_TRACKING_URI: 'http://10.0.0.171:5000/'
+      MLFLOW_TRACKING_URI: 'http://52.54.64.122:5000/'
