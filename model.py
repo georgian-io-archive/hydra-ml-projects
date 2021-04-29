@@ -16,7 +16,7 @@ eta = float(os.environ.get('eta', 0.2))
 max_depth = int(os.environ.get('max_depth', 5))
 subsample = float(os.environ.get('subsample', 1))
 lambda_param = float(os.environ.get('lambda', 1))
-alpha = int(os.environ.get('alpha', 0))
+alpha = float(os.environ.get('alpha', 0))
 min_child_weight = int(os.environ.get('min_child_weight', 1))
 
 
@@ -33,6 +33,13 @@ with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}')
                                   reg_lambda=lambda_param,
                                   reg_alpha=alpha,
                                   min_child_weight=min_child_weight)
+
+    mlflow.log_param('eta', eta)
+    mlflow.log_param('max_depth', max_depth)
+    mlflow.log_param('subsample', subsample)
+    mlflow.log_param('lambda', lambda_param)
+    mlflow.log_param('alpha', alpha)
+    mlflow.log_param('min_child_weight', min_child_weight)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
