@@ -14,12 +14,25 @@ y = cancer.target
 
 eta = float(os.environ.get('eta', 0.2))
 max_depth = int(os.environ.get('max_depth', 5))
+subsample = float(os.environ.get('subsample', 1))
+lambda_param = float(os.environ.get('lambda', 1))
+alpha = int(os.environ.get('alpha', 0))
+min_child_weight = int(os.environ.get('min_child_weight', 1))
+
 
 mlflow.set_experiment(experiment_name='breast_cancer_experiment')
 with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}') as run:
 
     # if more than one evaluation metric are given the last one is used for early stopping
-    xgb_model = xgb.XGBClassifier(objective="binary:logistic", random_state=42, eval_metric="auc")
+    xgb_model = xgb.XGBClassifier(objective="binary:logistic",
+                                  random_state=42,
+                                  eval_metric="auc",
+                                  eta=eta,
+                                  max_depth=max_depth,
+                                  subsample=subsample,
+                                  reg_lambda=lambda_param,
+                                  reg_alpha=alpha,
+                                  min_child_weight=min_child_weight)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
