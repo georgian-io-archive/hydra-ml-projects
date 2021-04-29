@@ -1,8 +1,0 @@
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":50, "max_iter": 1000}'
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":10, "max_iter": 2000}'
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":30, "max_iter": 500}'
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":20, "max_iter": 10}'
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":40, "max_iter": 25}'
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":60, "max_iter": 10000}'
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":70, "max_iter": 5000}'
-hydra train -m boston_housing/model_elastic_net.py --cloud=gcp --options='{"alpha":80, "max_iter": 100}'
