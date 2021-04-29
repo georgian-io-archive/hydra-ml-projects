@@ -1,8 +1,8 @@
 train:
   model_path: 'model.py'
   cloud: "aws"
-  cpu_count: 8
-  memory_size: 16
+  cpu_count: 2
+  memory_size: 8
   image_tag: ''
   project_name: "breast_cancer"
   options:
