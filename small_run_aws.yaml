@@ -1,0 +1,11 @@
+run:
+  project_name: "breast_cancer"
+  model_path: 'model.py'
+  cloud: "aws"
+  cpu_count: 8
+  memory_size: 16
+  region: 'us-east-1'
+  image_tag: ''
+  options:
+    - eta: 0.2
+      max_depth: 5
