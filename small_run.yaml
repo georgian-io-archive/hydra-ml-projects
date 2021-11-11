@@ -1,11 +1,13 @@
-train:
+run:
+  project_name: "breast_cancer"
   model_path: 'model.py'
-  cloud: "aws"
+  cloud: "gcp"
   cpu_count: 8
   memory_size: 16
-  image_tag: ''
-  project_name: "breast_cancer"
+  gpu_count: 1
+  gpu_type: 'NVIDIA_TESLA_P4'
+  region: 'us-west2'
+  image_tag: 'batch'
   options:
     - eta: 0.2
       max_depth: 5
-      MLFLOW_TRACKING_URI: 'http://52.54.64.122:5000/'

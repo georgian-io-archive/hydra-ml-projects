@@ -20,36 +20,23 @@ alpha = float(os.environ.get('alpha', 0))
 min_child_weight = int(os.environ.get('min_child_weight', 1))
 
 
-mlflow.set_experiment(experiment_name='breast_cancer_experiment')
-with mlflow.start_run(run_name=f'run-{datetime.now().strftime("%Y%m%d%H%M%S")}') as run:
 
-    # if more than one evaluation metric are given the last one is used for early stopping
-    xgb_model = xgb.XGBClassifier(objective="binary:logistic",
-                                  random_state=42,
-                                  eval_metric="auc",
-                                  eta=eta,
-                                  max_depth=max_depth,
-                                  subsample=subsample,
-                                  reg_lambda=lambda_param,
-                                  reg_alpha=alpha,
-                                  min_child_weight=min_child_weight)
+# if more than one evaluation metric are given the last one is used for early stopping
+xgb_model = xgb.XGBClassifier(objective="binary:logistic",
+                              random_state=42,
+                              eval_metric="auc",
+                              eta=eta,
+                              max_depth=max_depth,
+                              subsample=subsample,
+                              reg_lambda=lambda_param,
+                              reg_alpha=alpha,
+                              min_child_weight=min_child_weight)
 
-    mlflow.log_param('eta', eta)
-    mlflow.log_param('max_depth', max_depth)
-    mlflow.log_param('subsample', subsample)
-    mlflow.log_param('lambda', lambda_param)
-    mlflow.log_param('alpha', alpha)
-    mlflow.log_param('min_child_weight', min_child_weight)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+xgb_model.fit(X_train, y_train, early_stopping_rounds=5, eval_set=[(X_test, y_test)])
 
-    xgb_model.fit(X_train, y_train, early_stopping_rounds=5, eval_set=[(X_test, y_test)])
+y_pred = xgb_model.predict(X_test)
 
-    y_pred = xgb_model.predict(X_test)
+print(f"Accuracy score: {accuracy_score(y_test, y_pred)}")
 
-    mlflow.log_metric('accuracy_score',
-                      accuracy_score(y_test, y_pred))
-
-    mlflow.xgboost.log_model(xgb_model, "cancer_model")
-
-    mlflow.end_run()
